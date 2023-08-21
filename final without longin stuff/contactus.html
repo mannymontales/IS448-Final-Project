@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title> IS448 NEWS-Project </title>
+	<link rel="stylesheet" href="style/main.css">
+	
+	<style>
+<?php
+require 'dbcon.php';
+$sql = "Select * from tblstyle";
+$result = $conn->query($sql);
+	while($row = $result->fetch_assoc()) 
+	{
+	If ($row["tag"]=='H1')
+	{
+	echo "h1 {color:".$row["value"].";}";
+	}
+	elseif ($row["tag"]=='H2')
+	{
+	echo "h2 {color:".$row["value"].";}";
+	}
+	else
+	{
+	echo "h3 {color:".$row["value"].";}";
+	}
+	}
+?>
+	</style>
+
+</head>
+<body>
+		<main>
+			<section>	
+				<article>
+				<div class="container">
+					<h2>Contact Form</h2>
+					<br>
+					<p> Manny Montales </p>
+					<p> IS448 Final Project ITE468 </p>
+					<p> Email: emontal1 </p>
+					<p> Contact: ###-###-#### </p><br>
+				</div>
+				</article>
+			<article>
+
+				<div class="container">
+				  <form action="insertcontactus.php">
+					<label for="fname">Name</label>
+					<input type="text" id="fname" name="name" placeholder="Your Full Name.."><br>
+
+					<label for="lname">Address</label>
+					<input type="text" id="lname" name="address" placeholder="Your Address"><br>
+					
+					<label for="Message">Message</label>
+					<textarea id="message" name="message" placeholder="Please Write Your Message Here" style="height:200px"></textarea><br>
+			
+					<input type="submit" value="Submit">
+				  </form>
+				</div>
+			</article>
+			</section>
+	</main>
+	
+	<footer>
+		<center>
+			Footer information
+		</center>
+	</footer>
+</body>
+</HTML>
